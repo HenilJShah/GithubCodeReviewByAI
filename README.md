@@ -181,3 +181,5 @@ We welcome contributions to enhance the tool further. Please follow these steps:
 ### Acknowledgements
 
 - Built with ❤️ using [FastAPI](https://fastapi.tiangolo.com/) and [Google Generative AI](https://ai.google/tools/).
+
+# Thank you
