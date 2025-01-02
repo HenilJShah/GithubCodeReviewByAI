@@ -3,6 +3,7 @@ import json
 from celery.result import AsyncResult
 from fastapi import APIRouter, HTTPException, Depends, Path
 from sqlalchemy.orm import Session
+from starlette.responses import RedirectResponse
 
 from background_processor.pr_review_celery_job import analyze_git_pr
 from helper.helper import (
@@ -25,6 +26,11 @@ def get_db():
         yield db
     finally:
         db.close()
+
+
+@router.get("/", include_in_schema=False)
+def redirect_to_docs():
+    return RedirectResponse(url="/docs")
 
 
 @router.post("/analyze-pr", response_model=dict)
